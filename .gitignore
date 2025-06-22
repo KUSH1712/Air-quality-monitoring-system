@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+*.log
+data/air_quality_log.csv
+.env
+.DS_Store
