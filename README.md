@@ -57,7 +57,7 @@ The MQ135 is a gas sensor that:
 
 ---
 
-## 📸 Screenshots
+## 📷 Demo-visuals
 
 ### 🔹 Streamlit Dashboard  
 Shows live plot of air quality voltage readings.
