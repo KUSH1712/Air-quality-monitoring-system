@@ -3,6 +3,7 @@ import pandas as pd
 from datetime import datetime
 import os
 
+
 app = Flask(__name__)
 DATA_FILE = "data/air_quality_log.csv"
 
@@ -11,11 +12,11 @@ def upload():
     try:
         # Force parsing JSON from ESP32
         data = request.get_json(force=True)
-        print("📨 Raw data received:", data)
+        print(" Raw data received:", data)
 
         # Validate data
         if not data or "value" not in data:
-            print("❌ Missing 'value' in request")
+            print("Missing 'value' in request")
             return jsonify({"error": "Missing 'value'"}), 400
 
         # Convert to float
@@ -29,13 +30,13 @@ def upload():
         df = pd.DataFrame([[timestamp, value]], columns=["timestamp", "value"])
         df.to_csv(DATA_FILE, mode='a', header=not os.path.exists(DATA_FILE), index=False)
 
-        print(f"✅ Logged {timestamp} → {value:.2f} V")
+        print(f" Logged {timestamp} → {value:.2f} V")
         return jsonify({"status": "success"}), 200
 
     except Exception as e:
-        print("🚨 Server error:", str(e))  # This will appear in your terminal
+        print("Server error:", str(e)) 
         return jsonify({"error": "Internal server error", "message": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", use_reloader=False)
+    app.run(debug=True, host="0.0.0.0", use_reloader=False)      #prevent multiple reloads
 
