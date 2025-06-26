@@ -7,8 +7,8 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 
-const char* ssid = "Airtel_anan_6952";
-const char* password = "Air@60773";
+const char* ssid = "Air6952";
+const char* password = "113344";
 const char* serverURL = "http://192.168.1.9:5000/upload"; 
 
 const int mq135Pin = 34;  // pin definition
